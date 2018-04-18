@@ -38,9 +38,7 @@ export class FetchMoviesService {
   }
 
   getData() {
-    const payloadHeaders = new HttpHeaders({'Access-Control-Allow-Origin' : '*'});
-    return this.http.get<SearchMovieResult>(this.url, {withCredentials: false, headers: payloadHeaders})
-      .map(
+    return this.http.jsonp(this.url, 'callback').map(
         (data: SearchMovieResult) => {
           return data.results;
         }
@@ -56,8 +54,7 @@ export class FetchMoviesService {
   }
 
   loadMovie() {
-    const payloadHeaders = new HttpHeaders({'Access-Control-Allow-Origin' : '*'});
-    return this.http.get<Movies>(this.url, {withCredentials: false, headers: payloadHeaders})
+    return this.http.jsonp(this.url, 'callback')
       .map(
         (data: Movies) => {
           return data;

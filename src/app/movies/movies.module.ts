@@ -5,7 +5,7 @@ import {MoviesCategoriesComponent} from './movies-home/movies-categories/movies-
 import {MoviesSearchResultComponent} from './movies-search-result/movies-search-result.component';
 import {MoviesViewComponent} from './movies-view/movies-view.component';
 import {MoviesRoutingModule} from './movies.routing.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
@@ -23,7 +23,8 @@ import {SharedModule} from '../shared/shared.module';
     HttpClientModule,
     FormsModule,
     SharedModule,
-    MoviesRoutingModule
+    MoviesRoutingModule,
+    HttpClientJsonpModule
   ]
 })
 export class MoviesModule {}
