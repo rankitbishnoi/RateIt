@@ -1,0 +1,23 @@
+<div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6" *ngFor="let book of booksList; let i = index">
+      <div class="thumbnail" style="min-width: 350px; min-height:458px;" *ngIf="book !== undefined">
+        <img [src]="book.volumeInfo.imageLinks.thumbnail" alt="..." class="img-responsive" style="width: 128px; height:192px;">
+        <div class="caption">
+          <p><strong>{{book.volumeInfo.title}}</strong></p>
+          <p *ngIf="book.volumeInfo.publisher">Publisher: {{book.volumeInfo.publisher}}</p>
+          <p *ngIf="book.volumeInfo.authors">Author: {{book.volumeInfo.authors}} </p>
+          <p><a class="btn btn-primary" role="button" (click)="openBook(i)">Details</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="booksList === undefined">
+    <p> No Result Found!</p>
+  </div>
+  <div *ngIf="booksList !== undefined">
+    <a role="button" class="btn btn-primary" (click)="previousPage()">Previous</a>
+    <span>{{page +1}}</span>
+    <a role="button" class="btn btn-primary" (click)="nextPage()">Next</a>
+  </div>
+</div>

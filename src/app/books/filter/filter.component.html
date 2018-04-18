@@ -1,0 +1,56 @@
+<div class="jumbotron">
+  <h3>Filters</h3>
+  <hr>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div>
+      <p>Type:</p>
+      <div class="radio">
+        <label>
+          <input type="radio" name="filter" id="ebooks" value="ebooks" ngModel>
+          Ebooks
+        </label><br>
+        <label>
+          <input type="radio" name="filter" id="free-ebooks" value="free-ebooks" ngModel>
+          Free Ebooks
+        </label><br>
+        <label>
+          <input type="radio" name="filter" id="full" value="full" ngModel>
+          Full
+        </label><br>
+        <label>
+          <input type="radio" name="filter" id="paid-ebooks" value="paid-ebooks" ngModel>
+          Paid Ebooks
+        </label><br>
+        <label>
+          <input type="radio" name="filter" id="partial" value="partial" ngModel>
+          Partial
+        </label>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <p>Print Type: </p>
+      <select ngModel name="printType">
+        <option value="all">All</option>
+        <option value="books">Books</option>
+        <option value="magazines">Magazines</option>
+      </select>
+    </div>
+    <hr>
+    <div>
+      <p>Order By:</p>
+      <div class="radio">
+        <label>
+          <input type="radio" name="orderBy" id="relevance" value="relevance" ngModel>
+          Relevance
+        </label><br>
+        <label>
+          <input type="radio" name="orderBy" id="newest" value="newest" ngModel>
+          Newest
+        </label>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Apply</button>
+    <button class="btn btn-danger" (click)="onClear()">Reset</button>
+  </form>
+</div>

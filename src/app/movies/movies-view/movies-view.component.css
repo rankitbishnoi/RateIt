@@ -1,0 +1,21 @@
+.tagline{
+  font-size: .75em;
+}
+.btn-yellow {
+  background: #F6D100;
+  color: black;
+  border: none;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.btn-yellow:hover, .btn-yellow:focus {
+  background: rgb(252, 255, 179);
+}
+.btn-yellow:active {
+  background: rgb(247, 255, 71);
+}
+
+.well {
+  color: black;
+}

@@ -1,0 +1,39 @@
+<div class="row">
+  <div *ngIf="movie">
+    <div class="col-sm-12 col-md-4 well">
+      <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="..." class="img-responsive">
+      <hr>
+      <div *ngIf="movie.production_companies.length > 0">
+        <p><strong>Produced By: </strong></p>
+        <ul>
+          <li *ngFor="let company of movie.production_companies">{{company.name}}</li>
+        </ul>
+      </div>
+      <p *ngIf="movie.budget !== null"><strong>Budget:</strong> {{movie.budget}}$</p>
+      <p *ngIf="movie.revenue !== null"><strong>Revenue:</strong> {{movie.revenue}}$</p>
+    </div>
+    <div class="col-sm-12 col-md-8">
+      <h3>{{movie.title}}(<span class="tagline">{{movie.tagline}}</span>)</h3>
+      <p *ngIf="movie.runtime !== null"><strong>Runtime:</strong> {{movie.runtime}} minutes.</p>
+      <p *ngIf="movie.genres.length > 0">Genres:
+        <span *ngFor="let genre of movie.genres; let i = index"> {{genre.name}}
+          <span *ngIf="(i + 1) !== movie.genres.length">,</span>
+          <span *ngIf="(i + 1) === movie.genres.length">.</span>
+        </span>
+      </p>
+      <p *ngIf="movie.spoken_languages.length > 0">Languages:
+        <span *ngFor="let lang of movie.spoken_languages; let i = index"> {{lang.name || lang.iso_639_1}}
+          <span *ngIf="(i + 1) !== movie.genres.length">,</span>
+          <span *ngIf="(i + 1) === movie.genres.length">.</span>
+        </span>
+      </p>
+      <p>Release Date: {{movie.release_date}}</p>
+      <a role="button" [href]="'https://www.imdb.com/title/' + movie.imdb_id" class="btn btn-yellow" *ngIf="movie.imdb_id !== null">IMDB</a>
+      <a role="button" [href]="movie.homepage" class="btn btn-success" *ngIf="movie.homepage !== null">Website</a>
+      <hr>
+      <p><strong> Overview </strong>: </p>
+      <blockquote class="blockquote">{{movie.overview || "The description is not available for this Item"}}</blockquote>
+      <hr>
+    </div>
+  </div>
+</div>
